@@ -612,7 +612,7 @@ function ISItemManageUI:filter()
                 for k,v in ipairs (itemList) do
                     if i == j then
                         local fullType = v[1]
-                        toAdd[fullType] = 2
+                        toAdd[fullType] = 10
                         print(k)
                         print(v[1])
                     end
