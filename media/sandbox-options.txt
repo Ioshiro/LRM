@@ -1,0 +1,96 @@
+VERSION = 1,
+
+option LRM.ExpressFee
+{
+    type = integer, min = 0, max = 100,
+    default = 10,
+	page = LRM,
+	translation = ExpressFee,
+}
+
+
+option LRM.SelfExpressFee
+{
+    type = integer, min = 0, max = 100,
+	default =50,
+	page = LRM,
+	translation = SelfExpressFee,
+}
+
+
+option LRM.SellHandlingFee
+{
+	type = integer,min = 30, max = 100,
+	default = 50,
+	page = LRM,
+	translation = SellHandlingFee,
+}
+
+
+option LRM.InitAssets
+{
+	type = integer,min = 0, max = 10000,
+	default = 800,
+	page = LRM,
+	translation = InitAssets,
+}
+
+
+option LRM.NeedElectricity
+{
+	type = boolean,
+    default = true,
+	page = LRM,
+	translation = NeedElectricity,
+}
+
+
+option LRM.EnableInflation
+{
+	type = boolean,
+    default = true,
+	page = LRM,
+	translation = EnableInflation,
+}
+
+option LRM.EnableRestore
+{
+	type = boolean,
+    default = false,
+	page = LRM,
+	translation = EnableRestore,
+}
+
+option LRM.EnableGoodsBroadcast
+{
+	type = boolean,
+    default = true,
+	page = LRM,
+	translation = EnableGoodsBroadcast,
+}
+
+
+option LRM.TimeZoneOffset
+{
+	type = integer,min = -24, max = 24,
+    default = 8,
+	page = LRM,
+	translation = TimeZoneOffset,
+}
+
+
+option LRM.OrderTimeOutDate
+{
+	type = double,min = 0.0, max = 999999.0,
+    default = 0.0,
+	page = LRM,
+	translation = OrderTimeOutDate,
+}
+
+option LRM.OrderWeightModifier
+{
+	type = double,min = 0.0, max = 100.0,
+    default = 1.0,
+	page = LRM,
+	translation = OrderWeightModifier,
+}

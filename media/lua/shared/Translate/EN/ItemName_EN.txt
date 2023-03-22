@@ -1,0 +1,4 @@
+ItemName_EN = {
+ItemName_LRM.AdvancedTradingPost = "Trading Station (right Shift to open menu)",
+ItemName_LRM.AdvancedTradingPostInv = "Trading Station (Inventory)",
+}

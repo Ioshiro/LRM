@@ -1,0 +1,167 @@
+UI_EN = {
+UI_Goods_Detail = "product details",
+UI_Item_Detail = "Item Details",
+UI_Goods_Edit = "Commodity editor",
+UI_Goods_Add = "sell goods",
+UI_Goods_Sell = "packaged for sale",
+
+UI_Goods_Edit_Title = "product title",
+UI_Goods_Edit_Price = "commodity price",
+UI_Goods_Edit_Desc = "product description",
+UI_Goods_Edit_Items = "Included items",
+
+UI_Goods_Edit_Finished = "Whether the transaction has been completed",
+
+UI_Send_Goods_Broadcast = "======>I posted an item【%1】,Come and watch~~~",
+UI_Send_Buy_Broadcast = "The [%1] pack is now mine!",
+
+UI_Goods_No_Desc = "This person is lazy and didn't write the product description",
+
+UI_Upload_Succeed = "Published successfully",
+UI_Open_Express= "open the package",
+UI_Express_No_Player = "This seems to be an unnamed package, it's better not to open it",
+UI_Express_Wrong_Player= "This is someone else's package, it's better not to open it",
+UI_Express_Finish= "The item does not exist or has been bought by someone else",
+
+
+UI_Goods_Price = "price",
+UI_Express_Fee = "Additional logistics costs:%1(weight%2 x unit price%3)",
+UI_No_Comment = "no comments",
+UI_Item_Delta = "remaining：",
+UI_item_Condition = "Durability：",
+UI_item_Age = "stage：",
+
+UI_item_NewAge = "fresh (remaining at this stage%1day)",
+UI_item_OffAge = "Not fresh (remaining at this stage%1day)",
+UI_item_OffAgeMax = "decay",
+UI_item_Unlimited_Age = "Permanent preservation",
+
+UI_Item_HungChange = "Hunger changes："
+UI_Item_ThirstChange = "thirst changes："
+
+
+UI_Total_Assets = "%1 $$"
+
+
+UI_Kentucky_Shop = "Kentucky Doomsday Store",
+
+UI_Add_Shopping_List = "add to Shopping Cart(value%1, remaining%2)",
+UI_Buy = "purchase (total%1)",
+UI_Buy2 = "Buy",
+UI_Buy_Self = "Removed (total%1)",
+UI_Enable_Post = "Activate transaction",
+UI_Seller = "seller",
+UI_Buy_Succeed = "Thank you for your patronage, welcome to visit next time",
+UI_Update_Page = "refresh",
+
+
+UI_Page_Official_Trade = "Official self-operated",
+UI_Page_Player_Trade = "used goods trade",
+UI_Page_CommentBoard = "message board",
+UI_Page_Admin = "Backstage management",
+
+
+UI_Page_User = "User Management",
+UI_Page_Order = "Transaction post management",
+UI_Page_Item = "Manage Own Store Items",
+UI_Page_Backup = "Item list backup",
+UI_Page_Restore = "Item List Restoration",
+UI_Page_Reset = "item list initialization",
+
+
+UI_Edit_Player_Assets = "Player assets"
+UI_Edit_Player_Banned = "Whether the player is banned (cannot post products, can buy)"
+
+
+UI_text1 = "%1 x %2 (each%3) Inflation is %4",
+UI_text2 = "Your chips cannot be exchanged for this item! %1price in%3the inflation level for each%2",
+UI_text3 = "%1The quantity in stock is %2",
+UI_text41 = "The current level of inflation is%1 each%2 The total value is %3 x %4",
+UI_text42 = " = (%1) from total inventory%3 take out %2",
+UI_set_up = "set up",
+UI_set_up_name = "Drop to set up a trading station",
+UI_set_up_desc = "This action drops the trading station and initializes it for use, it is necessary for the trading station to take effect!",
+
+UI_Show_Inventory = "View stock list",
+UI_Show_Inventory_name = "View item/quantity",
+UI_Show_Inventory_desc = "This action will open a window showing the current item on the trading station and its inventory",
+
+UI_Donate_Contents = "donate",
+UI_Donate_Contents_name = "Donate supplies to trading posts",
+UI_Donate_Contents_desc = "This action will put all the items in the evaluation window into the inventory of the trading station, you will not receive any payment for the transaction and the operation cannot be undone. Admins can use this function to add items to the trading station that they want to buy",
+
+UI_Remove = "remove",
+UI_Remove_name = "remove the trading post",
+UI_Remove_desc = "This operation will completely remove the trading station and will not affect the inventory of existing trading stations",
+
+UI_View_Wares = "Trade/View Items",
+UI_View_Wares_name = "The total value of your items is %1",
+UI_View_Deposit_Total = "Total deposit: %1$",
+UI_View_Wares_desc = " from %1 (everyone%2) The current level of inflation is%3",
+
+UI_Trading_Tax = "Server Store Recycle Price Percentage Settings%1%",
+
+
+UI_Appraisal_Breakdown = "Valuation Details",
+
+UI_Purchase = "exchange %2 x %1",
+
+UI_Totaled_to = "Total is",
+UI_Thanks = "From the trader: Thank you for your patronage, welcome to visit next time~",
+UI_more = "More",
+UI_Shop_Maintaining = "The trading station is under maintenance, please visit later",
+UI_NEED_OnGround = "Inventory station needs to be placed on the ground first",
+
+
+UI_CreateOrResetDepository_name = "reset inventory",
+UI_CreateOrResetDepository_desc = "Reset the items in the inventory container, note that the existing items will be cleared",
+
+UI_ChangeDepository_name = "Set as common stock",
+UI_ChangeDepository_desc = "Setting the current container as the common container of the trading station will cancel the currently set common container",
+
+UI_Useless_1 = "%1value is0，Reason: Item is damaged",
+UI_Useless_2 = "%1value is0，Reason: Item is corrupted",
+UI_Useless_3 = "%1value is0，Reason: Item durability is lower than standard (60%)",
+UI_Useless_4 = "%1value is0，Reason: props are burnt",
+
+UI_Sell_Contents = "Sell to the Market",
+UI_Deposit_Money = "Deposit Money",
+
+
+UI_GoodsType_All = "All",
+UI_GoodsType_Start = "Starter Kit",
+UI_GoodsType_Mischia = "Melee Weapons",
+UI_GoodsType_Fuoco = "Firearms,
+UI_GoodsType_Munizioni = "Ammunition",
+UI_GoodsType_Medicinali = = "Medicinal",
+UI_GoodsType_Cibo = = "Food",
+UI_GoodsType_Vestiti = = "Clothing",
+UI_GoodsType_Sopravvivenza = = "Survival Equipment",
+UI_GoodsType_Libri = = "Books",
+UI_GoodsType_Mix = = "Mix",
+UI_GoodsType_Altro = "Other",
+
+
+UI_ExpressBox = "Kentucky Express Packages(Receiver:%1)",
+UI_ExpressBox_Tooltip = "A package from the Doomsday store in Kentucky, the package says「%1」.Rain or shine, please continue to support Kentucky Logistics",
+
+UI_List_Item1 = "%1(%2)",
+UI_List_Item2 = "price:%1",
+
+UI_LRM_NO_Electricity1 = "It looks like it needs electricity to use it",
+UI_LRM_NO_Electricity2 = "......？",
+UI_LRM_NO_Electricity3 = "I need to find something that provides power",
+
+UI_Add_Custom_Item = "Add custom items",
+UI_Add_Custom_Item_Id = "item ID",
+UI_Add_Custom_Item_Price = "Item price (0.01 converts to 1)",
+
+UI_Mod_Custom_Item = "Revise",
+
+UI_Valid_Item_Id = "The item id appears to be incorrect, please confirm again and try again",
+UI_Add_Item_Succeed = "The modification is successful, please refresh the list to display the modified data",
+
+UI_Price_Table= "price list",
+
+UI_Comment_Author= "survivor：%1      %2",
+}

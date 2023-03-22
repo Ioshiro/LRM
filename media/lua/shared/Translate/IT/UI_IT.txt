@@ -1,0 +1,166 @@
+UI_IT = {
+UI_Goods_Detail = "Detaggli Pacco",
+UI_Item_Detail = "Dettagli Item",
+UI_Goods_Edit = "Editor Pacco",
+UI_Goods_Add = "Vendi",
+UI_Goods_Sell = "Prepara Pacco",
+
+UI_Goods_Edit_Title = "Nome Pacco: ",
+UI_Goods_Edit_Price = "Prezzo (spedizioni escluse): ",
+UI_Goods_Edit_Desc = "Descrizione: ",
+UI_Goods_Edit_Items = "Oggetti inclusi: ",
+
+UI_Goods_Edit_Finished = "La transazione è stata completata!",
+
+UI_Send_Goods_Broadcast = "Ho messo in vedita il pacco [%1], venite a vedere!~~~",
+UI_Send_Buy_Broadcast = "Pacco [%1] intascato!",
+
+UI_Goods_No_Desc = "Il venditore è stato troppo pigro e non ha lasciato una descrizione",
+
+UI_Upload_Succeed = "Pubblicato con successo!",
+UI_Open_Express= "Apri Pacco",
+UI_Express_No_Player = "Pacco senza nome, meglio non aprirlo",
+UI_Express_Wrong_Player= "Questo pacco è di qualcun altro, meglio non aprirlo",
+UI_Express_Finish= "Il pacco non esiste oppure è stato già comprato",
+
+
+UI_Goods_Price = "Prezzo: ",
+UI_Express_Fee = "Spese logistiche: %1 (peso %2 * costo al kg %3)",
+UI_No_Comment = "Zero commenti",
+UI_Item_Delta = "Rimanente: ",
+UI_item_Condition = "Durabilità: ",
+UI_item_Age = "Stato: ",
+
+UI_item_NewAge = "Fresco (rimane tale per %1 giorn*)",
+UI_item_OffAge = "Non fresco (rimane tale per %1 giorn*)",
+UI_item_OffAgeMax = "Marcio",
+UI_item_Unlimited_Age = "Ghiacciato",
+
+UI_Item_HungChange = "Fame:"
+UI_Item_ThirstChange = "Sete:"
+
+
+UI_Total_Assets = "Bilancio: %1$"
+
+
+UI_Kentucky_Shop = "Mercato della Resistenza",
+
+UI_Add_Shopping_List = "Aggiungi al carrello (prezzo: %1, rimanenti: %2)",
+UI_Buy = "Compra: %1$",
+UI_Buy2 = "Compra",
+UI_Buy_Self = "Rimuovi: %1$",
+UI_Enable_Post = "Attiva transazione",
+UI_Seller = "Rivenditore",
+UI_Buy_Succeed = "Grazie per la visita, alla prossima!",
+UI_Update_Page = "Aggiorna",
+
+
+UI_Page_Official_Trade = "Mercato",
+UI_Page_Player_Trade = "Offerte Pacchi",
+UI_Page_CommentBoard = "Bacheca Annunci",
+UI_Page_Admin = "Impostazioni Admin",
+
+
+UI_Page_User = "Gestione Utenti",
+UI_Page_Order = "Gestione Transazioni",
+UI_Page_Item = "Gestione Listino",
+UI_Page_Backup = "Esegui backup lista",
+UI_Page_Restore = "Ripristino lista item",
+UI_Page_Reset = "Inizializzazione lista item",
+
+
+UI_Edit_Player_Assets = "Bilancio player"
+UI_Edit_Player_Banned = "bannato? (non può vendere pacchi, può comprare)"
+
+
+UI_text1 = "%1 x %2 (ogni %3) Inflazione: %4",
+UI_text2 = "I tuoi soldi non possono essere convertiti per questo item! %1 prezzo in %3 Inflazione per ciascuno: %2",
+UI_text3 = "%1 Quantità disponibile: %2",
+UI_text41 = "Inflazione attuale: %1 ogni %2. Valore totale %3 x %4",
+UI_text42 = " = (%1) Dal totale inventario: %3 metti via %2",
+UI_set_up = "Imposta",
+UI_set_up_name = "Buttare per terra per creare stazione",
+UI_set_up_desc = "Questa azione è neccessaria per mettere per terra la stazione ed inizializzarla!",
+
+UI_Show_Inventory = "Vedi lista stock",
+UI_Show_Inventory_name = "Vedi item/quantità",
+UI_Show_Inventory_desc = "Questa azione aprirà una finestra con il menu del mercato ed il suo inventario",
+
+UI_Donate_Contents = "Dona",
+UI_Donate_Contents_name = "Dona item alla stazione",
+UI_Donate_Contents_desc = "This action will put all the items in the evaluation window into the inventory of the trading station, you will not receive any payment for the transaction and the operation cannot be undone. Admins can use this function to add items to the trading station that they want to buy",
+
+UI_Remove = "Rimuovi",
+UI_Remove_name = "Rimuovi stazione di scambio",
+UI_Remove_desc = "This operation will completely remove the trading station and will not affect the inventory of existing trading stations",
+
+UI_View_Wares = "Scambia/Vedi Oggetti",
+UI_View_Wares_name = "Vendi per %1$",
+UI_View_Deposit_Total = "Deposito totale: %1$",
+UI_View_Wares_desc = "%1 (prezzo: %2), Inflazione: %3",
+
+UI_Trading_Tax = "Tassazione: %1%", 
+
+
+UI_Appraisal_Breakdown = "Dettagli Valutazione",
+
+UI_Purchase = "scambio %2 x %1",
+
+UI_Totaled_to = "Totale: ",
+UI_Thanks = "Grazie per la visita, alla prossima!~",
+UI_more = "Info",
+UI_Shop_Maintaining = "Stazione in manutenzione",
+UI_NEED_OnGround = "La stazione deve essere posizionata per terra",
+
+
+UI_CreateOrResetDepository_name = "Resetta inventario",
+UI_CreateOrResetDepository_desc = "Resetta gli item nel contenitore, attenzione perché verranno eliminati",
+
+UI_ChangeDepository_name = "Metti stock comune",
+UI_ChangeDepository_desc = "Setting the current container as the common container of the trading station will cancel the currently set common container",
+
+UI_Useless_1 = "%1 valore a 0,Ragione: Oggetto danneggiato",
+UI_Useless_2 = "%1 valore a 0,Ragione: Oggetto corrotto",
+UI_Useless_3 = "%1 valore a 0,Ragione: Durabilità oggetto sotto la soglia (60%)",
+UI_Useless_4 = "%1 valore a 0,Ragione: Oggetto bruciato",
+
+UI_Sell_Contents = "Vendi al Mercato",
+UI_Deposit_Money = "Deposita Soldi",
+
+UI_GoodsType_All = "Generale",
+UI_GoodsType_Start = "Start Kit",
+UI_GoodsType_Mischia = "Armi da Mischia",
+UI_GoodsType_Fuoco = "Armi da Fuoco",
+UI_GoodsType_Munizioni = "Munizioni",
+UI_GoodsType_Medicinali = = "Medicinali",
+UI_GoodsType_Cibo = = "Cibo",
+UI_GoodsType_Vestiti = = "Vestiti",
+UI_GoodsType_Sopravvivenza = = "Attrezzatura da Sopravvivenza",
+UI_GoodsType_Libri = = "Libri",
+UI_GoodsType_Mix = = "Mix",
+UI_GoodsType_Altro = "Altro",
+
+
+UI_ExpressBox = "Pacco La Resistenza Express(Destinatario: %1)",
+UI_ExpressBox_Tooltip = "Pacco acquistato alla stazione de La Resistenza Express, Nome: %1.",
+
+UI_List_Item1 = "%1 (%2)",
+UI_List_Item2 = "prezzo: %1",
+
+UI_LRM_NO_Electricity1 = "Pare che serva elettricità per usarlo",
+UI_LRM_NO_Electricity2 = "......wut?",
+UI_LRM_NO_Electricity3 = "Serve un generatore che produca energia",
+
+UI_Add_Custom_Item = "Aggiungi item",
+UI_Add_Custom_Item_Id = "item ID",
+UI_Add_Custom_Item_Price = "Prezzo (0.01 converte a 1)",
+
+UI_Mod_Custom_Item = "Revisiona",
+
+UI_Valid_Item_Id = "Item ID sbagliato.. Pynocchio guarda meglio come si chiama",
+UI_Add_Item_Succeed = "Modifica avvenuta con successo, aggiornare la lista per visualizzare il contenuto",
+
+UI_Price_Table= "Listino prezzi",
+
+UI_Comment_Author= "%1[%2]:",
+}

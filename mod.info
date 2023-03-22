@@ -1,0 +1,5 @@
+name=La Resistenza Market
+poster=poster.png
+description=Trading go brr
+id=LRM
+require=UIMod

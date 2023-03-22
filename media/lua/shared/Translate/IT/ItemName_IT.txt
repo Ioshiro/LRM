@@ -1,0 +1,4 @@
+ItemName_IT = {
+ItemName_LRM.AdvancedTradingPost = "Stazione di Scambio (Shift destro per aprire menu)",
+ItemName_LRM.AdvancedTradingPostInv = "Stazione di Scambio (Vecchio)",
+}

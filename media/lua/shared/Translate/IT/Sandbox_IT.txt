@@ -1,0 +1,37 @@
+Sandbox_IT = {
+Sandbox_LRM = "Stazione di Scambio",
+Sandbox_ExpressFee ="The price of logistics fee per unit weight during normal transaction",
+Sandbox_ExpressFee_tooltip = "This price is used when a player buys another player's goods. The courier fee is an additional calculation, and the total weight is multiplied by the unit price.",
+
+Sandbox_SelfExpressFee = "The price of the logistics fee per unit weight when the product is taken off the shelf",
+Sandbox_SelfExpressFee_tooltip = "In order to prevent self-selling and self-purchasing, when buying your own products, that is, when they are taken off the shelf, the unit price of the freight will be higher. It is recommended to set higher than normal trading time",
+
+
+Sandbox_SellHandlingFee = "Server store recovery price ratio",
+Sandbox_SellHandlingFee_tooltip = "The recovery price is a certain percentage of the purchase price of the commodity. According to the general RPG game, the purchase price is half of the purchase price is more appropriate",
+
+Sandbox_InitAssets = "Player's initial amount of money",
+Sandbox_InitAssets_tooltip = "Players can start with the amount of money set by this sandbox option",
+
+Sandbox_NeedElectricity = "Does the trading station need electricity",
+Sandbox_NeedElectricity_tooltip = "Set whether the block where the trading station is located has electricity to work properly",
+
+Sandbox_EnableInflation = "enable inflation",
+Sandbox_EnableInflation_tooltip = "Inflation can dynamically adjust the price of props in self-operated stores",
+
+Sandbox_EnableRestore = "Show listing recovery options",
+Sandbox_EnableRestore_tooltip = "When enabled, the option to restore and initialize the item list will be displayed",
+
+
+Sandbox_EnableGoodsBroadcast = "Enable listing broadcast",
+Sandbox_EnableGoodsBroadcast_tooltip = "When enabled, a listing notification will be sent to the global channel when listing an item",
+
+
+Sandbox_TimeZoneOffset = "Message board time zone offset",
+Sandbox_TimeZoneOffset_tooltip = "Since the server time is Greenwich Mean Time, it needs to be adjusted according to the server time zone",
+
+Sandbox_OrderTimeOUDate = "Transition Time of Transaction Post",
+Sandbox_OrderTimeOUtDate_tooltip = "The transaction has been suspended for longer than the hidden number in the game, and the seller needs to manually restart and activate. 0 means it will not be removed",
+
+
+}

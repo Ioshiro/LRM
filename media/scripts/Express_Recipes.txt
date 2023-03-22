@@ -1,0 +1,10 @@
+module Base
+{
+   item ExpressBox
+   {
+       DisplayCategory      =       Exchange,
+   	    Weight              =	    10,
+       DisplayName			=		ExpressBox,
+       Icon				    =		ExpressBox,
+   }
+}
