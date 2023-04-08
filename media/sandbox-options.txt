@@ -20,7 +20,7 @@ option LRM.SelfExpressFee
 
 option LRM.SellHandlingFee
 {
-	type = integer,min = 30, max = 100,
+	type = integer,min = 10, max = 100,
 	default = 50,
 	page = LRM,
 	translation = SellHandlingFee,
