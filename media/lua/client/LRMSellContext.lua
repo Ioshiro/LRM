@@ -1,8 +1,8 @@
-
+-- versione incompleta di lrm_contextmenu.lua
+-- da togliere oppure da completare e sostituire lrm_contextmenu.lua
 
 local function doSell(_, items)
     openGoodEditWindow(items)
-    --showSellWindow(item)
 end
 
 local function OnFillInventoryObjectContextMenu(player, context, items)
@@ -28,27 +28,7 @@ local function OnFillInventoryObjectContextMenu(player, context, items)
     --        item:getVisual():setHole(BloodBodyPartType.FromIndex(ZombRand(18)))
     --    end, item)
     --end
-
-
 end
 
 Events.OnFillInventoryObjectContextMenu.Add(OnFillInventoryObjectContextMenu)
-
---local function openTradingUI(_)
---    if not isNearAdvancedTradingPost() then
---        return
---    end
---
---    closeAllUI()
---    openMainUI()
---end
---[[
-local function OnFillWorldObjectContextMenu(player, context, worldObjects, test)
-	if isNearLRMObject("LRMMarket") then
-		context:addOption(getText("UI_Open_Trade_UI"), nil, openTradingUI)
-		return
-	end
-end
---]]
-
 Events.OnFillWorldObjectContextMenu.Add(OnFillWorldObjectContextMenu)

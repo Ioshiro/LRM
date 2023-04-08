@@ -1,3 +1,4 @@
+-- Classe ui di  base per la gestione della finestra di trading (TODO controllare se viene usata e incaso spostarla in client/UI)
 LRMWindow = ISCollapsableWindow:derive("LRMWindow");
 LRMWindow.compassLines = {}
 function LRMWindow:initialise()

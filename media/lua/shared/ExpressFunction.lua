@@ -1,4 +1,4 @@
-
+-- Apertura pacco express e inserimento delle statistiche nei vari item contenuti nel pacco
 function OpenExpressBox(_, item)
 
     local expressData = item:getModData().ExpressData
@@ -17,18 +17,9 @@ function OpenExpressBox(_, item)
         local inventoryItem = instanceItem(goods.fullType)
         if inventoryItem then
             inventoryItem:setCondition(math.floor(goods.condition / 100 * inventoryItem:getConditionMax()))
-
-        --    isBroken = v:isBroken(), -- 是否损坏
-        --    isRotten = v:IsRotten(), -- 是否腐败
-        --isBurnt = v:isBurnt(), -- 是否烧焦
-        --condition = v:getCurrentCondition(), -- 当前耐久度
-        --cooked = v:isCooked()
-
             inventoryItem:setBroken(goods.isBroken)
             inventoryItem:setBurnt(goods.isBurnt)
             inventoryItem:setCooked(goods.cooked)
-
-            --inventoryItem:setBroken(goods.isBroken)
 
             if instanceof(inventoryItem, "Food") then
                 if  goods.hungChange then
@@ -45,15 +36,12 @@ function OpenExpressBox(_, item)
                 inventoryItem:setName(goods.name)
             end
 
-
             if goods.age then
-
                 inventoryItem:setOffAge(goods.offAge)
                 inventoryItem:setOffAgeMax(goods.offAgeMax)
                 inventoryItem:setAge(goods.age + getGameTime():getWorldAgeHours() - goods.curAge)
                 inventoryItem:update()
                 inventoryItem:setAutoAge()
-
             end
 
             if goods.usedDelta then
@@ -70,12 +58,8 @@ function OpenExpressBox(_, item)
                 inventoryItem:copyModData(goods.modData)
             end
 
-
             getPlayer():getInventory():AddItem(inventoryItem)
         end
     end
-
     getPlayer():getInventory():Remove(item)
-
-
 end

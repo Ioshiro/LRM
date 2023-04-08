@@ -1,6 +1,5 @@
-
-
---require "Commodity"
+-- Classe util per gestire le table di item e player, varie funzioni di utilita', qualcosa di sconosciuto/inutile
+-- 
 
 ---@return InventoryItem
 function getParentContainer(container)
@@ -19,12 +18,8 @@ end
 function getPlayerId(player)
     if isSinglePlayer() then
         return 0
-        --elseif player:getSteamID() ~= nil then
-        --    return player:getSteamID()
     else
-        --return getSteamIDFromUsername(player:getUsername())
         return player:getSteamID()
-        --return player:getUsername()
     end
 end
 
@@ -37,9 +32,6 @@ function getPlayerIdFromUsername(username)
     end
 end
 
-
-
-
 function getPlayerAssets(player)
     if PlayerInventory == nil then
         return 0
@@ -47,15 +39,9 @@ function getPlayerAssets(player)
 
     local pId = getPlayerId(player)
     return math.floor(PlayerInventory.players[pId].score * 100)
-    --local score =
-    --commodities.players[pId].score = score + args[1]
-
-
-    --playerInventory
 end
 
 function getSyncContainer()
-
     return SyncContainer
 end
 
@@ -76,27 +62,22 @@ function SyncCommentBoard(newTable)
     RawCommentTable = newTable
 end
 
+-- Crea o resetta una depository (TODO indagare che cazz e', forse non serve)
 function CreateOrResetDepository(_, container)
-
-
     local itemContainer = container:getItemContainer()
-
     itemContainer:removeAllItems()
+    local shop_item
 
-    local shop_item;
     for k, v in pairs(ItemValueTable) do
-        --local itemType = k;
         local cat = ItemCategoryTable[k];
 
         if (v > 0.0) and (cat ~= nil) and (cat == "Money") then
-
             for i = 0, 15 do
                 shop_item = instanceItem(k);
                 itemContainer:addItemOnServer(shop_item);
                 itemContainer:AddItem(shop_item);
             end
         elseif (v > 0.0) and (ZombRand(v) < 10) and (cat ~= nil) then
-
             if (CategoryGroupTable[cat] == nil) then
                 print("CategoryGroupTable[cat] is nil when cat is [" .. tostring(cat) .. "]");
             end
@@ -106,9 +87,7 @@ function CreateOrResetDepository(_, container)
             if (uts < 2) then
                 uts = 2
             end
-            --elseif(uts> 15) then uts = 15 end
             if (ZombRand(1, uts) == 1) then
-
                 local randomAmount = ZombRand(15 + 1 - math.floor(v / 3));
                 if (randomAmount > 0) then
                     for i = 0, randomAmount do
@@ -117,11 +96,8 @@ function CreateOrResetDepository(_, container)
                         itemContainer:AddItem(shop_item);
                     end
                 end
-
             end
-
         elseif (v > 0) and (ZombRand(v) < 10) and (cat == "Food") and (ZombRand(1, 4) == 1) then
-
         end
     end
 
@@ -129,6 +105,7 @@ function CreateOrResetDepository(_, container)
 
 end
 
+-- mmm cambia depository? (TODO indagare che cazz e', forse non serve)
 function ChangeDepository(_, container)
     local worldItem = container:getWorldItem()
 
@@ -144,11 +121,6 @@ end
 
 function getItemDisplayName(itemType)
     return getScriptManager():getItem(itemType):getDisplayName()
-    --local itemObj = instanceItem(itemType);
-    --if (itemObj ~= nil) then
-    --    return itemObj:getDisplayName()
-    --end
-    --return "";
 end
 
 function AbsoluteValue(value)
@@ -163,7 +135,6 @@ function getDistanceBetween(z1, z2)
     if (z1 == nil) or (z2 == nil) then
         return -1
     end
-
     local z1x = z1:getX();
     local z1y = z1:getY();
     local z2x = z2:getX();
@@ -172,25 +143,14 @@ function getDistanceBetween(z1, z2)
 
 end
 
---function getShortTypeName(fullType)
---    local item = instanceItem(fullType);
---    return item:getType();
---end
-
 function getInStockCount(fullType)
-
     if SyncContainer == nil or SyncContainer[fullType] == nil then
         return 0
     end
-
     return SyncContainer[fullType]
 end
 
 function instanceCommodity(fullType)
-    --if not getSyncContainer() then
-    --    return nil
-    --end
-
     return Commodity:instance(fullType)
 end
 
@@ -199,96 +159,66 @@ function getItemUselessText(inventoryItem)
     if inventoryItem:isBroken() then
         return getText("UI_Useless_1", inventoryItem:getDisplayName())
     end
-
     if instanceof(inventoryItem, "Clothing") and inventoryItem:getVisual():getHolesNumber() > 0 then
         return getText("UI_Useless_1", inventoryItem:getDisplayName())
     end
-
     if inventoryItem:IsRotten() then
         return getText("UI_Useless_2", inventoryItem:getDisplayName())
     end
-
     if inventoryItem:getCurrentCondition() < 60.0 then
         return getText("UI_Useless_3", inventoryItem:getDisplayName())
     end
-
     if inventoryItem:isBurnt() then
         return getText("UI_Useless_4", inventoryItem:getDisplayName())
     end
-
     if instanceof(inventoryItem, "DrainableComboItem") and inventoryItem:getUsedDelta() < 0.6 then
         return getText("UI_Useless_5", inventoryItem:getDisplayName())
     end
-
     return ""
 end
 
 function checkItemUseful(inventoryItem)
     local item = inventoryItem:getScriptItem()
-    --local condition = inventoryItem:getCurrentCondition()
-    local getOffAgeMax = inventoryItem:getOffAgeMax() -- 腐败时间
-    local getOffAge = inventoryItem:getOffAge() -- 不新鲜时间
-
-    --if instanceof(inventoryItem, "Food") then
-    --    inventoryItem:getHungChange() -- 获取饱食度值
-    --    inventoryItem:getThirstChange() -- 口渴
-    --end
-
-    --if instanceof(inventoryItem, "Food") then
-    --    inventoryItem:getUsedDelta() -- 剩余量
-    --end
-
-
+    local getOffAgeMax = inventoryItem:getOffAgeMax()
+    local getOffAge = inventoryItem:getOffAge() 
     if inventoryItem:isBroken() then
         return false
     end
-
     if inventoryItem:IsRotten() then
         return false
     end
-
     if inventoryItem:isBurnt() then
         return false
     end
-
     if inventoryItem:getCurrentCondition() < 60.0 then
         return false
     end
-
     if instanceof(inventoryItem, "DrainableComboItem") and inventoryItem:getUsedDelta() < 0.6 then
         return false
     end
-
     if instanceof(inventoryItem, "Clothing") and inventoryItem:getVisual():getHolesNumber() > 0 then
         return false
     end
-
     return true
 end
 
-
+-- TODO: check if this is still needed
 function calItemPrice(item)
     if checkItemUseful(item) then
-
     end
     if item:isBroken() then
-
     end
-
 end
 
 function getSelectItems(items)
     if items == nil then
         return nil, nil
     end
-
     local temp = {}
     local itemList = {}
     for i = 1, #items do
         if not instanceof(items[i], "InventoryItem") then
-
             for j = 2, #items[i].items do
-
                 table.insert(temp, items[i].items[j])
                 table.insert(itemList, items[i].items[j]:getName())
             end
@@ -297,7 +227,6 @@ function getSelectItems(items)
             table.insert(itemList, items[i]:getName())
         end
     end
-
     return temp, itemList
 end
 
@@ -331,21 +260,15 @@ function doBuyTradingItem(items, value)
 			tradingItem[v] = tradingItem[v] - 1
 		end
     end
-
     sendClientCommand("LRM", "UpdatePlayerScore", { getPlayerId(getPlayer()), -(value / 100.0) })
-
     LRM.UpdateOnServer(tradingItem)
-
-
     --return tradingItem
-
 end
 
 function doSystemHint(text, isSucceed)
     if text == nil or isSucceed == nil then
         return
     end
-
     if isSinglePlayer() then
         getPlayer():Say(text)
     else
@@ -361,6 +284,8 @@ function doSystemHint(text, isSucceed)
     end
 end
 
+--importante funzione di controllo vicinanza ai tile LRM, viene richiamata ogni volta che si apre il menu
+-- TODO ottimizzarla/rendere più efficiente/migliorare null check
 function isNearLRMObject(objName)
     local square = getPlayer():getCurrentSquare()
     local px = square:getX();
@@ -371,7 +296,6 @@ function isNearLRMObject(objName)
     if isAdmin() or getPlayer():getAccessLevel() ~= "None" then
         hasPower = true
     end
-
     for y = py - 1, py + 1 do
         for x = px - 1, px + 1 do
             local squareTest = getCell():getGridSquare(x, y, pz);
@@ -380,7 +304,6 @@ function isNearLRMObject(objName)
                 for i = 0, objects:size()-1 do
                     local obj = objects:get(i)
                     if obj then
-						--print("found object: "..(obj:getName() or "error"))
                         if(obj:getSprite()) then
                             local sp = obj:getSprite():getProperties();
                             if sp:Is("GroupName") and sp:Is("CustomName") and sp:Val("GroupName")..sp:Val("CustomName") == objName then
@@ -412,26 +335,23 @@ function isNearLRMObject(objName)
 end
 
 
+local function getCurTime()
+    getTimestamp()
+end
 
+local tempUI
 local struct = {
     author = "",
     time = "",
     content = "",
 }
 
-local function getCurTime()
-
-    getTimestamp()
-end
-
-local tempUI
+-- crea la lista dei commenti nella finestra con ui (TODO risolvere l'overflow)
 function buildCommonList(commentTable)
-
     if CommentBoardUI and CommentBoardUI:isVisible() then
         local commentList = {}
         local timeList = {}
         for _, v in pairs(commentTable) do
-
             if v.visible == nil or v.visible == true then
                 table.insert(commentList, getText("UI_Comment_Author", v.author, v.time))
                 table.insert(commentList, v.content)
@@ -447,26 +367,15 @@ function buildCommonList(commentTable)
                 if tempUI then
                     tempUI:close()
                 end
-
                 tempUI = NewUI()
                 tempUI:isSubUIOf(CommentBoardUI)
                 tempUI:setWidthPercent(0.05)
                 tempUI:addButton("", "Remove", function()
                     sendClientCommand("LRM", "LRMAddComment", { nil, time })
                 end)
-
                 tempUI:saveLayout()
                 tempUI:setPositionPixel(CommentBoardUI:getX() + CommentBoardUI:getWidth() + 15, CommentBoardUI:getY())
-
             end)
         end
-
-
-
     end
-
-
 end
-
-
-

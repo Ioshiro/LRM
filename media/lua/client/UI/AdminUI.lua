@@ -2,37 +2,29 @@ AdminManageUI, UserManageUI, OrderManageUI, ItemManageUI = nil
 local subManageUI = nil
 
 local function openUserManageUI()
-
     if UserManageUI then
         UserManageUI:close()
     end
-
     if OrderManageUI then
         OrderManageUI:close()
     end
-
     if ItemManageUI then
         ItemManageUI:close()
     end
-
     if subManageUI then
         subManageUI:close()
     end
-
     UserManageUI = NewISUserManageUI()
     UserManageUI:isSubUIOf(AdminManageUI)
-
     if AdminManageUI then
         UserManageUI:setPositionPixel(AdminManageUI:getX() + AdminManageUI:getWidth() + 15, AdminManageUI:getY())
     end
 end
 
 local function openOrderEditUI(goodInfo)
-
     if goodInfo == nil then
         return
     end
-
     if subManageUI then
         subManageUI:close()
     end
@@ -43,10 +35,13 @@ local function openOrderEditUI(goodInfo)
     subManageUI:addText("", getText("UI_Goods_Edit_Title"))
     subManageUI:addEntry("EditTitle", goodInfo.name)
     subManageUI:nextLine()
+
     subManageUI:addText("", getText("UI_Goods_Edit_Price"))
     subManageUI:addEntry("EditPrice", tostring(math.floor(goodInfo.price * 100)), true)
     subManageUI:nextLine()
+
     subManageUI:addText("", getText("UI_Goods_Edit_Finished"))
+
     subManageUI:addTickBox("EditFinished")
     subManageUI["EditFinished"]:setValue(goodInfo.isFinish)
     subManageUI:nextLine()
@@ -57,7 +52,6 @@ local function openOrderEditUI(goodInfo)
     subManageUI:addText("", getText("UI_Enable_Post"))
     subManageUI:addTickBox("EditEnable")
     subManageUI["EditEnable"]:setValue(isEnable)
-
     subManageUI:nextLine()
 
     subManageUI:addButton("SaveBtn", "Save", function()

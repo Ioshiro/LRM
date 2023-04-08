@@ -1,19 +1,12 @@
-
 function addLine(UI)
     if not UI then
         return
     end
-
-    --if height == nil then
-    --    height = 50
-    --end
-
     UI:addEmpty()
     UI:nextLine()
 end
 
 function addConditionUI(item, window, uiName, uiName2)
-
     if not item or not window then
         return
     end
@@ -29,7 +22,6 @@ function addConditionUI(item, window, uiName, uiName2)
         window[uiName2]:setMarginPixel(10, 1)
         window:nextLine()
         addLine(window)
-
     end
 end
 
@@ -55,11 +47,8 @@ function addUsedDeltaUI(item, window, uiName, uiName2)
 end
 
 function addAgeUI(item, window, uiName, uiName2, uiName3)
-
     if item.age then
-
         local ageStep, ageProgress, stepText = getAge(item)
-
         --local stepText = ""
         --local ageValue
         --local lastAge = item.age + getGameTime():getWorldAgeHours() - item.curAge
@@ -73,7 +62,6 @@ function addAgeUI(item, window, uiName, uiName2, uiName3)
         --    ageValue = 0
         --    stepText = getText("UI_item_OffAgeMax")
         --end
-
 
         window:addText("", getText("UI_Item_HungChange"), _, "Center")
         window:addText("HungValue", string.format("%1.1f", item.hungerChange * 100.0), "MainMenu2", "Left")
@@ -117,9 +105,5 @@ function addAgeUI(item, window, uiName, uiName2, uiName3)
         window:nextLine()
 
         addLine(window)
-        --window:addEmpty()
-        --window:nextLine()
-
     end
-
 end
