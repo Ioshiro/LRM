@@ -146,9 +146,9 @@ end
 
 local function addSellMenu(context, items)
 
-    if not isAdmin() and not getPlayer():getAccessLevel() ~= "None" then
-		return
-	end
+    --if not isAdmin() and not getPlayer():getAccessLevel() ~= "None" then
+	--	return
+	--end
     local totalValue, totalValueString = showTotalValue(items)
 
     local TradeForOption = context:addOption(getText("UI_Sell_Contents"), nil, LRM.DoSell, items);
