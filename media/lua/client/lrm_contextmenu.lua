@@ -9,6 +9,99 @@ LRM = {};
 MaxStock = 999;
 SelectedContainer = nil;
 
+-- calcola il valore totale di un insieme di oggetti
+local function showTotalValue(items)
+    local totalValue = 0.00;
+    local totalValueString = getText("UI_Appraisal_Breakdown") .. "\n\n";
+    local type;
+    local item
+    local tempOfferGroupTable = {};
+
+    for _, v in ipairs(items) do
+        if not instanceof(v, "InventoryItem") then
+            item = v.items[1]
+            type = v.items[1]:getFullType()
+        else
+            item = v
+            type = v:getFullType()
+        end
+
+        if ItemValueTable[type] ~= nil and ItemValueTable[type] > 0.0 then
+            if not checkItemUseful(item) then
+                totalValueString = totalValueString .. getItemUselessText(item) .. "\n\n"
+            else
+                local itemInfo = instanceCommodity(type);
+                if itemInfo and itemInfo.price then
+                    totalValue = totalValue + itemInfo.price
+                    tempOfferGroupTable[type] = true;
+                    totalValueString = totalValueString .. getText("UI_View_Wares_desc", itemInfo.displayName, itemInfo.displayPrice, itemInfo.displayInflation) .. "\n\n";
+                end
+            end
+        end
+    end
+
+    local TPUsageTax = (totalValue * SandboxVars.LRM.SellHandlingFee / 100);
+    totalValue = totalValue - TPUsageTax;
+    totalValueString = totalValueString .. getText("UI_Trading_Tax", tostring(SandboxVars.LRM.SellHandlingFee)) .. " (" .. tostring(math.floor(TPUsageTax * 100)) .. ") \n " .. getText("UI_Totaled_to") .. tostring(math.floor(totalValue * 100));
+    print("total value calc: " .. tostring(totalValue));
+
+    return totalValue, totalValueString
+end
+
+-- calcola valore soldi depositati 
+-- (flag fromStack controlla se gli item sono dentro uno stack che genera un item virtuale in più)
+local function showTotalDeposit(items, fromStack)
+    local totalValue = 0.00
+    local totalValueString = getText("UI_Appraisal_Breakdown") .. "\n\n"
+    local type
+    local item
+	local stackValue = 0.00
+
+    for _, v in ipairs(items) do
+            if not instanceof(v, "InventoryItem") then
+                item = v.items[1]
+                type = v.items[1]:getFullType()
+            else
+                item = v
+                type = v:getFullType()
+            end
+
+            if type == "Base.Money" then
+				totalValue = totalValue + 0.01;
+				stackValue = 0.01
+			elseif type == "MoneyToXP.XPMoneyStack" then
+				totalValue = totalValue + 1
+				stackValue = 1.0
+            end
+    end
+    -- se è un stack di soldi, togliamo il valore di un singolo soldo
+	if fromStack then totalValue = totalValue - stackValue end
+
+    totalValueString = totalValueString .. getText("UI_Totaled_to") .. tostring(math.floor(totalValue * 100));
+    print("total value calc: " .. tostring(totalValue));
+
+    return totalValue, totalValueString
+end
+
+-- aggiunge opzione di vendita al menu contestuale
+local function addSellMenu(context, items)
+    --if not isAdmin() and not getPlayer():getAccessLevel() ~= "None" then
+	--	return
+	--end
+
+    local totalValue, totalValueString = showTotalValue(items)
+
+    local TradeForOption = context:addOption(getText("UI_Sell_Contents"), nil, LRM.DoSell, items);
+    makeToolTip(TradeForOption, getText("UI_View_Wares_name", tostring(math.floor(totalValue * 100))), totalValueString);
+end
+
+-- aggiunge opzione di deposito al menu contestuale
+local function addDepositMenu(context, items, fromStack)
+	local totalValue, totalValueString = showTotalDeposit(items, fromStack)
+	local DepositOption = context:addOption(getText("UI_Deposit_Money"), nil, LRM.DoDeposit, items, fromStack);
+	makeToolTip(DepositOption, getText("UI_View_Deposit_Total", tostring(math.floor(totalValue * 100))), "");
+end	
+
 -- check per l'aggiunta dell'opzione di prelievo e vendita al menu contestuale
 -- controlla la distanza dalla mailbox, atm o market
 local function OnFillInventoryObjectContextMenu(player, context, items)
@@ -32,6 +125,8 @@ local function OnFillInventoryObjectContextMenu(player, context, items)
                 selectedContainer = tradePostItem:getContainer()
 			elseif isNearLRMObject("LRMMailbox") or isNearLRMObject("location_business_bank_01_64") or isNearLRMObject("location_business_bank_01_65") or isNearLRMObject("location_business_bank_01_66")or isNearLRMObject("location_business_bank_01_67") or isNearLRMObject("LRMMarket") then
 				selectedContainer = tradePostItem:getContainer()
+                -- attenzione questo è l'oggetto globale
+                SelectedContainer = tradePostItem:getContainer()
 			end
 
 			if selectedContainer and not hasDepositOption and (tradePostItem:getFullType() == "Base.Money" or tradePostItem:getFullType() == "MoneyToXP.XPMoneyStack") then
@@ -51,25 +146,6 @@ local function OnFillInventoryObjectContextMenu(player, context, items)
         end
     end
 end
-
--- aggiunge opzione di vendita al menu contestuale
-local function addSellMenu(context, items)
-    --if not isAdmin() and not getPlayer():getAccessLevel() ~= "None" then
-	--	return
-	--end
-
-    local totalValue, totalValueString = showTotalValue(items)
-
-    local TradeForOption = context:addOption(getText("UI_Sell_Contents"), nil, LRM.DoSell, items);
-    makeToolTip(TradeForOption, getText("UI_View_Wares_name", tostring(math.floor(totalValue * 100))), totalValueString);
-end
-
--- aggiunge opzione di deposito al menu contestuale
-local function addDepositMenu(context, items, fromStack)
-	local totalValue, totalValueString = showTotalDeposit(items, fromStack)
-	local DepositOption = context:addOption(getText("UI_Deposit_Money"), nil, LRM.DoDeposit, items, fromStack);
-	makeToolTip(DepositOption, getText("UI_View_Deposit_Total", tostring(math.floor(totalValue * 100))), "");
-end	
 
 -- sync table con il server
 LRM.UpdateOnServer = function(modifyTable)
@@ -222,80 +298,6 @@ function makeToolTip(option, name, desc)
     toolTip:setName(name);
     toolTip.description = desc .. " <LINE> ";
     return toolTip;
-end
-
--- calcola il valore totale di un insieme di oggetti
-local function showTotalValue(items)
-    local totalValue = 0.00;
-    local totalValueString = getText("UI_Appraisal_Breakdown") .. "\n\n";
-    local type;
-    local item
-    local tempOfferGroupTable = {};
-
-    for _, v in ipairs(items) do
-        if not instanceof(v, "InventoryItem") then
-            item = v.items[1]
-            type = v.items[1]:getFullType()
-        else
-            item = v
-            type = v:getFullType()
-        end
-
-        if ItemValueTable[type] ~= nil and ItemValueTable[type] > 0.0 then
-            if not checkItemUseful(item) then
-                totalValueString = totalValueString .. getItemUselessText(item) .. "\n\n"
-            else
-                local itemInfo = instanceCommodity(type);
-                if itemInfo and itemInfo.price then
-                    totalValue = totalValue + itemInfo.price
-                    tempOfferGroupTable[type] = true;
-                    totalValueString = totalValueString .. getText("UI_View_Wares_desc", itemInfo.displayName, itemInfo.displayPrice, itemInfo.displayInflation) .. "\n\n";
-                end
-            end
-        end
-    end
-
-    local TPUsageTax = (totalValue * SandboxVars.LRM.SellHandlingFee / 100);
-    totalValue = totalValue - TPUsageTax;
-    totalValueString = totalValueString .. getText("UI_Trading_Tax", tostring(SandboxVars.LRM.SellHandlingFee)) .. " (" .. tostring(math.floor(TPUsageTax * 100)) .. ") \n " .. getText("UI_Totaled_to") .. tostring(math.floor(totalValue * 100));
-    print("total value calc: " .. tostring(totalValue));
-
-    return totalValue, totalValueString
-end
-
--- calcola valore soldi depositati 
--- (flag fromStack controlla se gli item sono dentro uno stack che genera un item virtuale in più)
-local function showTotalDeposit(items, fromStack)
-    local totalValue = 0.00
-    local totalValueString = getText("UI_Appraisal_Breakdown") .. "\n\n"
-    local type
-    local item
-	local stackValue = 0.00
-
-    for _, v in ipairs(items) do
-            if not instanceof(v, "InventoryItem") then
-                item = v.items[1]
-                type = v.items[1]:getFullType()
-            else
-                item = v
-                type = v:getFullType()
-            end
-
-            if type == "Base.Money" then
-				totalValue = totalValue + 0.01;
-				stackValue = 0.01
-			elseif type == "MoneyToXP.XPMoneyStack" then
-				totalValue = totalValue + 1
-				stackValue = 1.0
-            end
-    end
-    -- se è un stack di soldi, togliamo il valore di un singolo soldo
-	if fromStack then totalValue = totalValue - stackValue end
-
-    totalValueString = totalValueString .. getText("UI_Totaled_to") .. tostring(math.floor(totalValue * 100));
-    print("total value calc: " .. tostring(totalValue));
-
-    return totalValue, totalValueString
 end
 
 -- funzione che aggiunge le opzioni nel menu contestuale
