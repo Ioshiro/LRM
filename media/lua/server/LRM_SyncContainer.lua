@@ -249,7 +249,9 @@ local function OnClientCommand(module, command, player, args)
                 return
             end
             if not args[1].id then
-                local id = tostring(table_length(commodities.items) + 1)
+                -- TODO: modificare con gestione dell'id in modo da non avere duplicati
+                local id = ZombRand(2000000000)
+                --tostring(table_length(commodities.items) + 1)
                 args[1].id = id
             end
             commodities.items[args[1].id] = args[1]
@@ -262,7 +264,6 @@ local function OnClientCommand(module, command, player, args)
             local goodsData = commodities.items[goodsId]
 
             if goodsData == nil or goodsData.isFinish then
-                -- TODO *** questa parte e' la piu' critica, ogni tanto viene chiamata a caso ***
                 commodities.items[goodsId] = nil
                 commodities = getOrCreatePlayerCommodity(pId, commodities)
                 sendPlayerInventory(nil, commodities)
@@ -286,7 +287,6 @@ local function OnClientCommand(module, command, player, args)
             else
                 sendServerCommand(player, "LRM", "SendPlayerCommodity", { goodsData })
             end
-            -- TODO *** questa parte e' la piu' critica, ogni tanto cancella tutti i pacchi o il penultimo boh***
             commodities.items[goodsId] = nil
             commodities = getOrCreatePlayerCommodity(pId, commodities)
             sendPlayerInventory(nil, commodities)
