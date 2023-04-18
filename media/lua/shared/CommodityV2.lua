@@ -174,6 +174,10 @@ function getAge(item)
     local ageStep = 0
 
     if item.age > 0.0 then
+
+        -- variabile sandbox per disabilitare deperimento cibo
+        if SandboxVars.LRM.DisableFoodAge then return 0, item.age, getText("UI_item_Unlimited_Age") end
+
         local lastAge = (item.age + getGameTime():getWorldAgeHours() - item.curAge) / 24.0
         if lastAge < item.offAge then
             ageValue = item.offAge - lastAge
@@ -196,6 +200,7 @@ function getAge(item)
             stepText = getText("UI_item_OffAgeMax")
         end
     end
+
 
     return ageStep, ageProgress, stepText
 end

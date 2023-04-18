@@ -34,5 +34,7 @@ Sandbox_OrderTimeOutDate = "Transition Time of Transaction Post",
 Sandbox_OrderTimeOutDate_tooltip = "The transaction has been suspended for longer than the hidden number in the game, and the seller needs to manually restart and activate. 0 means it will not be removed",
 
 Sandbox_OrderWeightModifier = "Weight modifier of Express fees cost",
-Sandbox_OrderWeightModifier_tooltip = "(at default value 1kg = 1currency)"
+Sandbox_OrderWeightModifier_tooltip = "(at default value 1kg = 1currency)",
+Sandbox_DisableFoodAge = "Disable express food aging",
+Sandbox_DisableFoodAge_tooltip = "With this enabled players can sell food without worrying about rotting"
 }

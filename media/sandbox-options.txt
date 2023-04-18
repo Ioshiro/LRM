@@ -94,3 +94,11 @@ option LRM.OrderWeightModifier
 	page = LRM,
 	translation = OrderWeightModifier,
 }
+
+option LRM.DisableFoodAge
+{
+	type = boolean,
+	default = false,
+	page = LRM,
+	translation = DisableFoodAge
+}

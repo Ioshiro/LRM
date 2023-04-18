@@ -34,4 +34,7 @@ Sandbox_OrderTimeOUDate = "Transition Time of Transaction Post",
 Sandbox_OrderTimeOUtDate_tooltip = "The transaction has been suspended for longer than the hidden number in the game, and the seller needs to manually restart and activate. 0 means it will not be removed",
 
 
+Sandbox_DisableFoodAge = "Disabilita deperimento cibo express",
+Sandbox_DisableFoodAge_tooltip = "Tonno aperto non marcisce mai yuhu"
+
 }
