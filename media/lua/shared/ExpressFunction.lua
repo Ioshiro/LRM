@@ -39,7 +39,13 @@ function OpenExpressBox(_, item)
             if goods.age then
                 inventoryItem:setOffAge(goods.offAge)
                 inventoryItem:setOffAgeMax(goods.offAgeMax)
-                inventoryItem:setAge(goods.age + getGameTime():getWorldAgeHours() - goods.curAge)
+                -- check per consegnare cibo non deperito in caso di opzione sandbox
+                -- tocca farlo anche qua, nonostante basterebbe richiamare il getAge, todo sistemare?
+                if SandboxVars.LRM.DisableFoodAge then
+                    inventoryItem:setAge(goods.age)
+                else
+                    inventoryItem:setAge(goods.age + getGameTime():getWorldAgeHours() - goods.curAge)
+                end
                 inventoryItem:update()
                 inventoryItem:setAutoAge()
             end
