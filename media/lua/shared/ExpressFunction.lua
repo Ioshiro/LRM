@@ -43,11 +43,12 @@ function OpenExpressBox(_, item)
                 -- tocca farlo anche qua, nonostante basterebbe richiamare il getAge, todo sistemare?
                 if SandboxVars.LRM.DisableFoodAge then
                     inventoryItem:setAge(goods.age)
+                    inventoryItem:update()
                 else
                     inventoryItem:setAge(goods.age + getGameTime():getWorldAgeHours() - goods.curAge)
+                    inventoryItem:update()
+                    inventoryItem:setAutoAge()
                 end
-                inventoryItem:update()
-                inventoryItem:setAutoAge()
             end
 
             if goods.usedDelta then
