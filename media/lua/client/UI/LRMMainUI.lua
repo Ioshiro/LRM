@@ -447,7 +447,7 @@ function openMainUI()
     addLine(mainUI)
     mainUI:addButton("btn1", getText("UI_Page_Official_Trade"), function()
         mainUI:toggle()
-        openShopMainUI()
+        openShopMainUI(CategoryAll)
     end)
     mainUI:setLineHeightPercent(0.05)
     mainUI["btn1"]:setMarginHorizontal(30)
@@ -515,7 +515,7 @@ function openMarketUI()
     end
 
     closeAllUI()
-	openShopMainUI()
+	openShopMainUI(CategoryAll)
 end
 
 function openExpressUI()

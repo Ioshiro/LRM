@@ -308,7 +308,25 @@ local function OnFillWorldObjectContextMenu(player, context, worldObjects, test)
 		context:addOption("Apri Market", thump, LRM.openMarketUI, player)
 	elseif isNearLRMObject("LRMMailbox") then
 		context:addOption("Apri Mailbox", thump, LRM.openCommentUI, player)
-	end
+    elseif isNearLRMObject("LRMMarketMedical") then
+        context:addOption("Apri Market", thump, LRM.openMarketMedicalUI, player)
+    elseif isNearLRMObject("LRMMarketMoney") then
+        context:addOption("Apri Market", thump, LRM.openMarketMoneyUI, player)
+    elseif isNearLRMObject("LRMMarketAmmo") then
+        context:addOption("Apri Market", thump, LRM.openMarketAmmoUI, player)
+    elseif isNearLRMObject("LRMMarketSurvival") then
+        context:addOption("Apri Market", thump, LRM.openMarketSurvivalUI, player)
+    elseif isNearLRMObject("LRMMarketWeapon") then
+        context:addOption("Apri Market", thump, LRM.openMarketWeaponUI, player)
+    elseif isNearLRMObject("LRMMarketClothing") then
+        context:addOption("Apri Market", thump, LRM.openMarketClothingUI, player)
+    elseif isNearLRMObject("LRMMarketFood") then
+        context:addOption("Apri Market", thump, LRM.openMarketFoodUI, player)
+    elseif isNearLRMObject("LRMMarketBook") then
+        context:addOption("Apri Market", thump, LRM.openMarketBookUI, player)
+    elseif isNearLRMObject("LRMMarketCar") then
+        context:addOption("Apri Market", thump, LRM.openMarketCarUI, player)
+    end
 end
 
 function LRM.openExpressUI()
@@ -318,7 +336,52 @@ end
 
 function LRM.openMarketUI()
     closeAllUI()
-	openShopMainUI()
+	openShopMainUI(CategoryAll)
+end
+
+function LRM.openMarketMedicalUI()
+    closeAllUI()
+    openShopMainUI(CategoryMedical)
+end
+
+function LRM.openMarketMoneyUI()
+    closeAllUI()
+    openShopMainUI(CategoryMoney)
+end
+
+function LRM.openMarketAmmoUI()
+    closeAllUI()
+    openShopMainUI(CategoryAmmo)
+end
+
+function LRM.openMarketSurvivalUI()
+    closeAllUI()
+    openShopMainUI(CategorySurvival)
+end
+
+function LRM.openMarketWeaponUI()
+    closeAllUI()
+    openShopMainUI(CategoryWeapon)
+end
+
+function LRM.openMarketClothingUI()
+    closeAllUI()
+    openShopMainUI(CategoryClothing)
+end
+
+function LRM.openMarketFoodUI()
+    closeAllUI()
+    openShopMainUI(CategoryFood)
+end
+
+function LRM.openMarketBookUI()
+    closeAllUI()
+    openShopMainUI(CategoryBook)
+end
+
+function LRM.openMarketCarUI()
+    closeAllUI()
+    openShopMainUI(CategoryCar)
 end
 
 function LRM.openCommentUI()

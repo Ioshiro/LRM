@@ -114,7 +114,7 @@ function toggleItemManageUI(shopMainUI, editable)
 end
 
 -- apre la finestra principale del market
-function openShopMainUI()
+function openShopMainUI(categories)
     if ShopMainUI then
         ShopMainUI:close()
     end
@@ -132,7 +132,7 @@ function openShopMainUI()
     addLine(ShopMainUI)
 
     -- combo box per selezionare la categoria
-    ShopMainUI:addComboBox("Category", CategoryList)
+    ShopMainUI:addComboBox("Category", categories)
     ShopMainUI["Category"]:setMarginHorizontal(10)
 
     -- testo bilancio
@@ -174,7 +174,7 @@ function openShopMainUI()
     -- al cambio categoria aggiorna la lista item disponibili
     ShopMainUI["Category"]:setOnChange(function()
 		local cat = ShopMainUI["Category"]:getValue()
-		openShopMainUI()
+		openShopMainUI(categories)
 		ShopMainUI["Category"]:select(cat)
         ShopMainUI["ShopInventory"]:setItems(getItemsByCategory(cat))
     end)

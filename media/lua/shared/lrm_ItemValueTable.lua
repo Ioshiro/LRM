@@ -165,10 +165,22 @@ ItemValueTable["LabBooks.BkVirologyCourses1"] = 20
 
 -- props
 ItemCategoryTable = {}
-CategoryList = { "All" }
+CategoryAll = { "All" }
 CategoryGroupTable = {}
 CategoryTotals = {}
 BackupOfItemValueTable = copyTable(ItemValueTable)
+-- categorie custom (se si mette "all" mi sa che non filtra proprio e mostra tutti gli item)
+CategoryMedical = {"Medical"}
+CategoryMoney = {"Junk"}
+CategoryAmmo = {"Ammo"}
+CategorySurvival = {"Survival"}
+CategoryWeapon = {"Weapon", "ToolWeapon", "WeaponCrafted" }
+CategoryClothing = {"Clothing"}
+CategoryBook = {"All", "Book", "Magazine", "LabBook" , "SkillBook"}
+CategoryFood = {"Food"}
+CategoryCar = {"VehicleMaintenance"}
+--CategoryGun = {"Firearms"} <- da cambiare categoria (itemTweaker) alle armi da fuoco
+--CategoryFurniture = {"Movable"}
 
 function isModEnabled(modname)
     local actmods = getActivatedMods()
@@ -193,7 +205,7 @@ end
 
 local function resetTable()
     ItemCategoryTable = {}
-    CategoryList = { "All" }
+    CategoryAll = { "All" }
     CategoryGroupTable = {}
     CategoryTotals = {}
 end
@@ -214,8 +226,8 @@ function InitLRMTables()
             end
 
             ItemCategoryTable[k] = category
-            if (not has_value(CategoryList, category)) and category ~= "Key" then
-                table.insert(CategoryList, category)
+            if (not has_value(CategoryAll, category)) and category ~= "Key" then
+                table.insert(CategoryAll, category)
             end
 
             if (not CategoryGroupTable[category]) then
