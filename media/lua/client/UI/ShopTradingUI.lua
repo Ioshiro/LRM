@@ -91,7 +91,10 @@ local function getItemsByCategory(category)
 
     firstItemCount = nil
     for k, v in pairs(tempShopInventory) do
-        if v > 0 and (ItemValueTable[k] and ItemValueTable[k] > 0.0 and (category == "All" or CategoryGroupTable[category][k] ~= nil)) then
+        if v > 0 and (ItemValueTable and
+                      ItemValueTable[k] and
+                      ItemValueTable[k] > 0.0 and
+                      (category == "All" or (CategoryGroupTable[category] and CategoryGroupTable[category][k] ~= nil))) then
             if firstItemCount == nil then
                 firstItemCount = { k, v }
                 selectedItemName = getItemDisplayName(k)
@@ -157,7 +160,7 @@ function openShopMainUI(categories)
     addLine(ShopMainUI)
 
     -- lista item disponibili, selezionarli modifica il bottone aggiungi alla lista spesa
-    ShopMainUI:addScrollList("ShopInventory", getItemsByCategory("All"))
+    ShopMainUI:addScrollList("ShopInventory", getItemsByCategory(categories[1]))
     ShopMainUI["ShopInventory"]:setOnMouseDownFunction(_, function(_, item)
         local value, it = ShopMainUI["ShopInventory"]:getValue()
         selectedItemName = value

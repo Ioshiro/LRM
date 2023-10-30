@@ -170,13 +170,14 @@ CategoryGroupTable = {}
 CategoryTotals = {}
 BackupOfItemValueTable = copyTable(ItemValueTable)
 -- categorie custom (se si mette "all" mi sa che non filtra proprio e mostra tutti gli item)
+-- TODO: market (computer) vende solo soldi e mazzette
 CategoryMedical = {"Medical"}
 CategoryMoney = {"Junk"}
 CategoryAmmo = {"Ammo"}
 CategorySurvival = {"Survival"}
 CategoryWeapon = {"Weapon", "ToolWeapon", "WeaponCrafted" }
 CategoryClothing = {"Clothing"}
-CategoryBook = {"All", "Book", "Magazine", "LabBook" , "SkillBook"}
+CategoryBook = {"Book", "Magazine", "LabBook" , "SkillBook"}
 CategoryFood = {"Food"}
 CategoryCar = {"VehicleMaintenance"}
 --CategoryGun = {"Firearms"} <- da cambiare categoria (itemTweaker) alle armi da fuoco
@@ -224,7 +225,7 @@ function InitLRMTables()
             if (category == nil) then
                 category = instanceItem(k):getCategory()
             end
-
+            -- per fucili -> esiste classe HandWeapon e ha bool bIsAimedFirearm
             ItemCategoryTable[k] = category
             if (not has_value(CategoryAll, category)) and category ~= "Key" then
                 table.insert(CategoryAll, category)
