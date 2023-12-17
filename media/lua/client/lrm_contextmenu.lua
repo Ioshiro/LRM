@@ -123,7 +123,13 @@ local function OnFillInventoryObjectContextMenu(player, context, items)
 
             if getParentContainer(tradePostItem) ~= nil and getParentContainer(tradePostItem):getName() == "LRMMarket" then
                 selectedContainer = tradePostItem:getContainer()
-			elseif isNearLRMObject("LRMMailbox") or isNearLRMObject("location_business_bank_01_64") or isNearLRMObject("location_business_bank_01_65") or isNearLRMObject("location_business_bank_01_66")or isNearLRMObject("location_business_bank_01_67") or isNearLRMObject("LRMMarket") then
+			elseif isNearLRMObject("LRMMailbox") or
+                   isNearLRMObject("location_business_bank_01_64") or
+                   isNearLRMObject("location_business_bank_01_65") or
+                   isNearLRMObject("location_business_bank_01_66")or
+                   isNearLRMObject("location_business_bank_01_67") or
+                   isNearLRMObject("LRMMarket") or
+                   isNearLRMObject("LRMMarketMoney") then
 				selectedContainer = tradePostItem:getContainer()
                 -- attenzione questo è l'oggetto globale
                 SelectedContainer = tradePostItem:getContainer()
@@ -309,23 +315,23 @@ local function OnFillWorldObjectContextMenu(player, context, worldObjects, test)
 	elseif isNearLRMObject("LRMMailbox") then
 		context:addOption("Apri Mailbox", thump, LRM.openCommentUI, player)
     elseif isNearLRMObject("LRMMarketMedical") then
-        context:addOption("Apri Market", thump, LRM.openMarketMedicalUI, player)
+        context:addOption("Accedi a Farmacia", thump, LRM.openMarketMedicalUI, player)
     elseif isNearLRMObject("LRMMarketMoney") then
-        context:addOption("Apri Market", thump, LRM.openMarketMoneyUI, player)
+        context:addOption("Accedi a Bancomat", thump, LRM.openMarketMoneyUI, player)
     elseif isNearLRMObject("LRMMarketAmmo") then
-        context:addOption("Apri Market", thump, LRM.openMarketAmmoUI, player)
+        context:addOption("Accedi a Polveriera", thump, LRM.openMarketAmmoUI, player)
     elseif isNearLRMObject("LRMMarketSurvival") then
-        context:addOption("Apri Market", thump, LRM.openMarketSurvivalUI, player)
+        context:addOption("Accedi a Centro Sopravvivenza", thump, LRM.openMarketSurvivalUI, player)
     elseif isNearLRMObject("LRMMarketWeapon") then
-        context:addOption("Apri Market", thump, LRM.openMarketWeaponUI, player)
+        context:addOption("Accedi ad Armeria", thump, LRM.openMarketWeaponUI, player)
     elseif isNearLRMObject("LRMMarketClothing") then
-        context:addOption("Apri Market", thump, LRM.openMarketClothingUI, player)
+        context:addOption("Accedi a Spaccio Vestiti", thump, LRM.openMarketClothingUI, player)
     elseif isNearLRMObject("LRMMarketFood") then
-        context:addOption("Apri Market", thump, LRM.openMarketFoodUI, player)
+        context:addOption("Accedi a Rosticceria (Brace Accesa)", thump, LRM.openMarketFoodUI, player)
     elseif isNearLRMObject("LRMMarketBook") then
-        context:addOption("Apri Market", thump, LRM.openMarketBookUI, player)
+        context:addOption("Accedi a Libreria", thump, LRM.openMarketBookUI, player)
     elseif isNearLRMObject("LRMMarketCar") then
-        context:addOption("Apri Market", thump, LRM.openMarketCarUI, player)
+        context:addOption("Accedi a Officina", thump, LRM.openMarketCarUI, player)
     end
 end
 

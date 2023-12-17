@@ -168,7 +168,7 @@ function openShopMainUI(categories)
     end)
     ShopMainUI:setLineHeightPercent(0.3)
 
-    -- lista item nella lista spesa, selezionarli elimina l'item dalla lista
+    -- lista item nella lista spesa, selezionarli toglie l'item dalla lista
     ShopMainUI:addScrollList("ShoppingList", {})
     ShopMainUI["ShoppingList"]:setOnMouseDownFunction(shoppingList, doRemoveShoppingList)
     ShopMainUI:nextLine()
