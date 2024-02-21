@@ -124,14 +124,14 @@ local function OnFillInventoryObjectContextMenu(player, context, items)
             if getParentContainer(tradePostItem) ~= nil and getParentContainer(tradePostItem):getName() == "LRMMarket" then
                 selectedContainer = tradePostItem:getContainer()
 			elseif isNearLRMObject("LRMMailbox") or
-                   isNearLRMObject("location_business_bank_01_64") or
-                   isNearLRMObject("location_business_bank_01_65") or
-                   isNearLRMObject("location_business_bank_01_66")or
-                   isNearLRMObject("location_business_bank_01_67") or
                    isNearLRMObject("LRMMarket") or
                    isNearLRMObject("LRMMarketMoney") then
 				selectedContainer = tradePostItem:getContainer()
                 -- attenzione questo è l'oggetto globale
+                 --  isNearLRMObject("location_business_bank_01_64") or
+                 --  isNearLRMObject("location_business_bank_01_65") or
+                --   isNearLRMObject("location_business_bank_01_66")or
+                 --  isNearLRMObject("location_business_bank_01_67") or
                 SelectedContainer = tradePostItem:getContainer()
 			end
 
