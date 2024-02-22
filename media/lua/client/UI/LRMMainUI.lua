@@ -409,7 +409,7 @@ function openPlayerTradeMainUI(pId)
     addLine(playerTradeMainUI)
 
     -- testo descrizione (TODO: aggiungere stringa localizzata)
-    playerTradeMainUI:addText("ListDescription", "Pacchi disponibili:", "Small", "Left")
+    playerTradeMainUI:addText("ListDescription", "Materiali stoccati:", "Small", "Left")
 	playerTradeMainUI:nextLine()
     --addLine(playerTradeMainUI)
 
