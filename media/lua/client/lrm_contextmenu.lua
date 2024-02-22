@@ -309,7 +309,7 @@ end
 -- funzione che aggiunge le opzioni nel menu contestuale
 local function OnFillWorldObjectContextMenu(player, context, worldObjects, test)
 	if isNearLRMObject("LRMExpress") then
-		context:addOption("Apri Express", thump, LRM.openExpressUI, player)
+		context:addOption("Apri Deposito", thump, LRM.openExpressUI, player)
 	elseif isNearLRMObject("LRMMarket") then
 		context:addOption("Apri Market", thump, LRM.openMarketUI, player)
 	elseif isNearLRMObject("LRMMailbox") then

@@ -174,12 +174,15 @@ BackupOfItemValueTable = copyTable(ItemValueTable)
 CategoryMedical = {"Medical"}
 CategoryMoney = {"Junk"}
 CategoryAmmo = {"Ammo"}
+--[[
 CategorySurvival = {"Survival"}
 CategoryWeapon = {"Weapon", "ToolWeapon", "WeaponCrafted" }
 CategoryClothing = {"Clothing"}
 CategoryBook = {"Book", "Magazine", "LabBook" , "SkillBook"}
 CategoryFood = {"Food"}
 CategoryCar = {"VehicleMaintenance"}
+]]--
+
 --CategoryGun = {"Firearms"} <- da cambiare categoria (itemTweaker) alle armi da fuoco
 --CategoryFurniture = {"Movable"}
 
