@@ -40,7 +40,7 @@ UI_Item_HungChange = "Fame:"
 UI_Item_ThirstChange = "Sete:"
 
 
-UI_Total_Assets = "Pacchi stoccati: %1$"
+UI_Total_Assets = "Pacchi stoccati: %1"
 
 
 UI_Kentucky_Shop = "Mercato della Resistenza",
