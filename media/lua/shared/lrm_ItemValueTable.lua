@@ -174,6 +174,7 @@ BackupOfItemValueTable = copyTable(ItemValueTable)
 CategoryMedical = {"Medical"}
 CategoryMoney = {"Junk"}
 CategoryAmmo = {"Ammo"}
+CategoryMix = {"Mix"}
 --[[
 CategorySurvival = {"Survival"}
 CategoryWeapon = {"Weapon", "ToolWeapon", "WeaponCrafted" }

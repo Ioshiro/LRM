@@ -131,6 +131,7 @@ UI_GoodsType_All = "Generale",
 UI_GoodsType_Start = "Metallo",
 UI_GoodsType_Mischia = "Elettrica",
 UI_GoodsType_Fuoco = "Legname",
+UI_GoodsType_Mix = "Mix",
 
 
 

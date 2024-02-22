@@ -5,8 +5,9 @@ GoodsType = {
     "All", 
     "Start", 
     "Mischia", 
-    "Fuoco", 
-    "Munizioni", 
+    "Fuoco",
+    "Mix" 
+   --[[ "Munizioni", 
     "Medicinali", 
     "Cibo", 
     "Vestiti", 
@@ -14,6 +15,7 @@ GoodsType = {
     "Libri", 
     "Mix", 
     "Altro" 
+    ]]--
 }
 
 GoodsTypeGroup = {}
